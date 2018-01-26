@@ -15,7 +15,7 @@ npm install
 ```ch
 npm run dev
 ```  
-It should show you the following:
+It should show you the following:  
 ![LAUNCH](https://i.imgur.com/iFG1uWI.png)
 
 
