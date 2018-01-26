@@ -37,3 +37,16 @@ Make POST as request method, change "Content-Type" to "multipart/form-data", and
 
 ##### Entity body
 ![POST2](https://i.imgur.com/JUkbvub.png)
+  
+  
+### TESTING
+First, make sure your server is not running because it will prevent tests from running. 
+Assuming you are still in the root of project, run this command:
+```ch
+npm test
+```  
+It will show you the following in the command-line:  
+![TESTS](https://i.imgur.com/slSFfSf.png)
+
+### ISSUES
+Please navigate to Issues page at the top of repo.  
