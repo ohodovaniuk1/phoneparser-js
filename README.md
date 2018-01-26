@@ -7,7 +7,7 @@ Before you proceed, please ensure that you have downloaded and installed Node.js
 # How to use
 
   - Download this repo 
-  - Navigate to it with command-line, and install all the packages: 
+  - Navigate inside it with command-line, and install all the packages: 
 ```ch
 npm install
 ```  
