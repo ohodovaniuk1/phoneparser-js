@@ -30,7 +30,6 @@ app.post('/api/phonenumbers/parse/file', upload.single('file'), (req, res) => {
     res.status(400).send('No file received');
   }
   else {
-//    var contents = fs.readFileSync(req.file.path);
     fs.readFile(req.file.path, function(err, contents) {
       if(err) {
         res.status(500).send(err);
@@ -40,10 +39,10 @@ app.post('/api/phonenumbers/parse/file', upload.single('file'), (req, res) => {
       var buf = Buffer.from(fileText, 'base64');
       var numbers = buf.toString('ascii');
       var numArr = numbers.split('\n');
-  
+
       var finalArr = numParser(numArr, res);
-  
-      res.status(200).send(finalArr);  
+
+      res.status(200).send(finalArr);
     });
   }
 });
