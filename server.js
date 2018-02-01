@@ -2,6 +2,7 @@ var express = require('express');
 var bodyParser = require('body-parser');
 var multer = require('multer');
 var upload = multer({dest: 'uploads/'});
+var fs = require('fs');
 
 var app = express();
 
@@ -29,16 +30,21 @@ app.post('/api/phonenumbers/parse/file', upload.single('file'), (req, res) => {
     res.status(400).send('No file received');
   }
   else {
-    var fs = require('fs');
-    var contents = fs.readFileSync(req.file.path);
-    var fileText = contents.toString('ascii');
-    var buf = Buffer.from(fileText, 'base64');
-    var numbers = buf.toString('ascii');
-    var numArr = numbers.split('\n');
-
-    var finalArr = numParser(numArr, res);
-
-    res.status(200).send(finalArr);
+//    var contents = fs.readFileSync(req.file.path);
+    fs.readFile(req.file.path, function(err, contents) {
+      if(err) {
+        res.status(500).send(err);
+        return;
+      }
+      var fileText = contents.toString('ascii');
+      var buf = Buffer.from(fileText, 'base64');
+      var numbers = buf.toString('ascii');
+      var numArr = numbers.split('\n');
+  
+      var finalArr = numParser(numArr, res);
+  
+      res.status(200).send(finalArr);  
+    });
   }
 });
 
