@@ -42,6 +42,31 @@ app.post('/api/phonenumbers/parse/file', upload.single('file'), (req, res) => {
   }
 });
 
+app.post('/api/phonenumbers/parse/pdf', upload.single('file'), (req, res) => {
+
+  if(!req.file) {
+    res.status(400).send('No file received');
+  }
+  else {
+    var path = require('path')
+    var filePath = path.join(__dirname, req.file.path)
+    var extract = require('pdf-text-extract')
+
+    extract(filePath, { splitPages: false }, function (err, text) {
+      if (err) {
+        res.status(400).send("Exception caught: " + err);
+        //return bad pdf
+        return
+      }
+
+      var finalArr = numParser(text, res);
+	    res.status(200).send(finalArr);
+
+    })
+
+  }
+});
+
 app.listen(8000, () => {
   console.log('The server is running on port 8000');
 });
