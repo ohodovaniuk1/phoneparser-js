@@ -44,7 +44,7 @@ app.post('/api/phonenumbers/parse/file', upload.single('file'), (req, res) => {
 
       res.status(200).send(finalArr);
     });
-}
+  }
 });
 
 app.post('/api/phonenumbers/parse/pdf', upload.single('file'), (req, res) => {
@@ -68,7 +68,6 @@ app.post('/api/phonenumbers/parse/pdf', upload.single('file'), (req, res) => {
 	    res.status(200).send(finalArr);
 
     })
-
   }
 });
 
