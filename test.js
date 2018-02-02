@@ -63,14 +63,14 @@ describe('API endpoint /api/phonenumbers/parse/file', () => {
 describe('API endpoint /api/phonenumbers/parse/file', () => {
 
   // POST - pdf
-  it('should return [\'+1 905-887-2216\']', () => {
+  it('should return [\'+1 333-896-1231\']', () => {
       return chai.request(app)
         .post('/api/phonenumbers/parse/pdf')
         .set('Content-Type', 'multipart/plain')
-        .attach('file', fs.readFileSync('./test_phone_number.pdf'), 'test_phone_number.pdf')
+        .attach('file', fs.readFileSync('./phone.pdf'), 'test_phone_number.pdf')
         .then((res) => {
           expect(res).to.have.status(200);
-          expect(res.body).to.be.an('array').that.include('+1 905-887-2216');
+          expect(res.body).to.be.an('array').that.include('+1 333-896-1231');
        });
      })
 });
