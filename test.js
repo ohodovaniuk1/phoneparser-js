@@ -30,17 +30,16 @@ it('should return [\'+1 416-491-5050\']', () => {
       });
   });
 
-// GET - nothing -- TODO
-/*
+// GET - nothing
 it('should return an empty array', () => {
-    return chai.request(app)
+    chai.request(app)
     .get('/api/phonenumbers/parse/text/nothing')
-    .then((res) => {
-      expect(res).to.have.status(400);
-      expect(res.body).to.be.an('array').that.is.empty;
+    .end((res) => {
+      res.should.have.status(400);
+      res.body.should.be.a('[]');
     });
   });
-*/
+});
 
 });
 
