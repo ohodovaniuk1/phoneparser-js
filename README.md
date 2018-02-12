@@ -52,7 +52,11 @@ Assuming you are still in the root of project, run this command:
 npm test
 ```  
 It will show you the following in the command-line:  
-![TESTS](https://i.imgur.com/slSFfSf.png)
+![TESTS](https://i.imgur.com/slSFfSf.png)  
+
+### Important
+In order to get PDF test working, you need to get Poppler for Windows from here: http://blog.alivate.com.au/poppler-windows/  
+After that, put it on your 'C' drive and add "C:\poppler-0.51\bin" to you PATH environmental variables.  
 
 ### ISSUES
 Please navigate to Issues page at the top of repo.  
