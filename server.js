@@ -5,6 +5,7 @@ var upload = multer({dest: 'uploads/'});
 var fs = require('fs');
 
 var app = express();
+var serverPort = process.env.PORT || 8000
 
 app.get('/', (req, res) => {
   res.status(200).send('The API is accessible');
@@ -71,8 +72,8 @@ app.post('/api/phonenumbers/parse/pdf', upload.single('file'), (req, res) => {
   }
 });
 
-app.listen(8000, () => {
-  console.log('The server is running on port 8000');
+app.listen(serverPort, () => {
+  console.log('The server is running on port '+ serverPort);
 });
 
 //////////////////////////////
