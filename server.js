@@ -18,7 +18,7 @@ app.get('/api/phonenumbers/parse/text/:phoneNumber', (req, res) => {
   }
   else {
     var arr = [];
-    arr.push(req.params.phoneNumber);
+    arr= req.params.phoneNumber.split(',');
     var finalArr = numParser(arr, res);
 
     res.status(200).send(finalArr);
