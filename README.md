@@ -6,12 +6,12 @@ Before you proceed, please ensure that you have downloaded and installed Node.js
 
 # How to use
 
-  - Download this repo 
-  - Navigate inside it with command-line, and install all the packages: 
+  - Download this repo
+  - Navigate inside it with command-line, and install all the packages:
 ```ch
 npm install
 ```  
-- Run the server by typing: 
+- Run the server by typing:
 ```ch
 npm run dev
 ```  
@@ -37,8 +37,14 @@ Make POST as request method, change "Content-Type" to "multipart/form-data", and
 
 ##### Entity body
 ![POST2](https://i.imgur.com/JUkbvub.png)
-  
-  
+
+### PDF Post Request
+As of now, PDF POST works only with one number.  
+Url to test: localhost:8000/api/phonenumbers/parse/pdf
+Make sure to set POST as request method and included "multipart/form-data" for "Content-Type" before sending request:
+![POST](https://i.imgur.com/Feqiwqf.png)
+
+
 ### TESTING
 First, make sure your server is not running because it will prevent tests from running.  
 Assuming you are still in the root of project, run this command:
@@ -46,7 +52,11 @@ Assuming you are still in the root of project, run this command:
 npm test
 ```  
 It will show you the following in the command-line:  
-![TESTS](https://i.imgur.com/slSFfSf.png)
+![TESTS](https://i.imgur.com/slSFfSf.png)  
+
+### Important
+In order to get PDF test working, you need to get Poppler for Windows from here: http://blog.alivate.com.au/poppler-windows/  
+After that, put it on your 'C' drive and add "C:\poppler-0.51\bin" to you PATH environmental variables.  
 
 ### ISSUES
 Please navigate to Issues page at the top of repo.  

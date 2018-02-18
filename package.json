@@ -5,7 +5,8 @@
   "main": "server.js",
   "scripts": {
     "dev": "nodemon server.js",
-    "test": "mocha --recursive"
+    "test": "mocha --recursive",
+    "prod": "node server.js"
   },
   "author": "Jean Apetov",
   "license": "ISC",
@@ -13,12 +14,19 @@
     "body-parser": "^1.18.2",
     "express": "^4.16.2",
     "google-libphonenumber": "^3.0.10",
-    "multer": "^1.3.0"
+    "multer": "^1.3.0",
+    "pdf-extract": "^1.0.11",
+    "pdf-text-extract": "^1.5.0"
   },
   "devDependencies": {
     "chai": "^4.1.2",
     "chai-http": "^3.0.0",
+    "eslint": "^4.17.0",
+    "eslint-plugin-node": "^6.0.0",
     "mocha": "^5.0.0",
     "nodemon": "^1.14.11"
+  },
+  "engines": {
+    "node": "8.9.4"
   }
 }
