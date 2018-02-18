@@ -71,3 +71,34 @@ describe('API endpoint /api/phonenumbers/parse/pdf', () => {
        });
      })
 });
+
+describe('API endpoint /api/phonenumbers/parse/word', () => {
+
+  // POST - doc
+  it('should return [\'+1 859-999-1843\', \'+1 316-984-6123\', \'+1 321-342-6332\']', () => {
+    return chai.request(app)
+      .post('/api/phonenumbers/parse/word')
+      .set('Content-Type', 'text/plain')
+      .attach('file', fs.readFileSync('./numbers.doc'), 'numbers.doc')
+      .then((res) => {
+        expect(res).to.have.status(200);
+        expect(res.body).to.be.an('array').that.include('+1 859-999-1843', '+1 316-984-6123', '+1 321-342-6332');
+      });
+  })
+});
+
+describe('API endpoint /api/phonenumbers/parse/word', () => {
+
+  // POST - docx
+  it('should return [\'+1 859-999-1843\', \'+1 316-984-6123\', \'+1 321-342-6332\']', () => {
+    return chai.request(app)
+      .post('/api/phonenumbers/parse/word')
+      .set('Content-Type', 'text/plain')
+      .attach('file', fs.readFileSync('./numbers.docx'), 'numbers.docx')
+      .then((res) => {
+        expect(res).to.have.status(200);
+        expect(res.body).to.be.an('array').that.include('+1 859-999-1843', '+1 316-984-6123', '+1 321-342-6332');
+      });
+  })
+});
+
